@@ -44,3 +44,26 @@
     width: 25px;
     height: 25px;
 }
+
+/* For Webkit browsers */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* For Firefox */
+scrollbar-width: thin;
+scrollbar-color: #333333 #222222;
+
+/* For Webkit browsers */
+::-webkit-scrollbar-track {
+    background: #222222;
+}
+
+/* For Webkit browsers */
+::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+/* For Firefox */
+scrollbar-color: #333333 #222222;

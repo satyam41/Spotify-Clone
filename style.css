@@ -59,6 +59,7 @@ body {
 .right {
     width: 75vw;
     margin: 16px 0;
+    position: relative;
 }
 
 .header {
@@ -80,6 +81,8 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     margin: 20px;
+    max-height: 65vh;
+    overflow-y: scroll;
 }
 
 .card {
@@ -118,7 +121,63 @@ body {
     transition: all 1s ease-in;
 }
 
-.play :hover{
+.play :hover {
     opacity: 1;
     top: 149px;
+}
+
+.buttons>* {
+    margin: 0 12px;
+}
+
+.signup-btn {
+    background-color: rgb(34, 34, 34);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(156, 148, 148);
+    font-size: 1rem;
+}
+
+.signup-btn:hover {
+    font-size: 1.04rem;
+    color: white;
+}
+
+.login-btn {
+    background-color: white;
+    color: black;
+    border-radius: 3rem;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 78px;
+}
+
+.login-btn:hover {
+    font-weight: bold;
+    scale: 1.1;
+}
+
+.playBar {
+    position: absolute;
+    bottom: 0;
+    background-color: #f8fffb;
+    width: 90%;
+    padding: 12px;
+}
+
+.songbutton {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.songList ul {
+    padding: 0 43px;
+}
+
+.songList ul li {
+    list-style-type: decimal;
 }
