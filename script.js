@@ -34,12 +34,14 @@ async function getSongs() {
     return songs;
 }
 
-const playMusic = (track) => {
+const playMusic = (track, pause=false) => {
     // let audio = new Audio("/songs/" + track);
     currentSong.src = "/songs/" + track;
-    currentSong.play();
-    play.src = "/img/pause.svg";
-    document.querySelector(".songinfo").innerHTML = track;
+    if(!pause){
+        currentSong.play();
+        play.src = "/img/pause.svg";
+    }
+    document.querySelector(".songinfo").innerHTML = decodeURI(track);
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
 
@@ -47,6 +49,7 @@ async function main() {
 
     //get the list of the songs
     let songs = await getSongs();
+    playMusic(songs[0], true);
     // console.log(songs);
 
 
@@ -91,7 +94,25 @@ async function main() {
     // Listen for timeupdate event
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`;
+        document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 100 + "%";
     })
+
+    // add a event listener to seekbar
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        // console.log(e);
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100
+        document.querySelector(".circle").style.left = percent + "%";
+        currentSong.currentTime = ((currentSong.duration) * percent) / 100;
+    })
+
+    document.querySelector(".hamburger").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "0";
+    })
+
+    document.querySelector(".close").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "-110%";
+    })
+
 }
 
 main();

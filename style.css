@@ -180,6 +180,7 @@ body {
     position: absolute;
     bottom: 0;
     margin: 6px;
+    cursor: pointer;
 }
 
 .circle {
@@ -193,11 +194,12 @@ body {
     transition: left 0.5s;
 }
 
-.aboveBar{
+.aboveBar {
     justify-content: space-between;
 }
 
-.songinfo, .songtime{
+.songinfo,
+.songtime {
     color: black;
     padding: 0 12px;
 }
@@ -208,7 +210,7 @@ body {
     gap: 16px;
 }
 
-.songbutton img{
+.songbutton img {
     cursor: pointer;
 }
 
@@ -249,4 +251,54 @@ body {
     font-size: 13px;
     width: 59px;
     padding: 12px 0;
+}
+
+.hamburger {
+    display: none;
+}
+
+.hambergurContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+}
+
+
+
+/* Media Querry */
+
+@media (max-width: 1220px) {
+    .left {
+        position: absolute;
+        left: -110%;
+        transition: all .3s;
+        width: 437px;
+        z-index: 1;
+        background-color: black;
+    }
+
+    .close {
+        position: absolute;
+        right: 29px;
+        top: 25px;
+        width: 25px;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    .playBar {
+        width: 96vw;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%);
+    }
+
+    .hamburger {
+        display: block;
+        width: 40px;
+        height: 34px;
+    }
 }
