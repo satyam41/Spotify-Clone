@@ -78,6 +78,7 @@ body {
 
 .cardContainer {
     display: flex;
+    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
     margin: 20px;
@@ -166,10 +167,11 @@ body {
     left: 450px;
     background-color: #e6e3e3;
     width: 67vw;
-    padding: 12px;
+    padding: 23px;
     border-radius: 15px;
     filter: invert(1);
     height: 32px;
+    margin: 0 -12px;
 }
 
 .seekbar {
@@ -179,7 +181,7 @@ body {
     background-color: black;
     position: absolute;
     bottom: 0;
-    margin: 6px;
+    margin: 6px -12px;
     cursor: pointer;
 }
 
@@ -198,10 +200,29 @@ body {
     justify-content: space-between;
 }
 
-.songinfo,
+.timevol {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
 .songtime {
+    width: 125px;
     color: black;
     padding: 0 12px;
+}
+
+.songinfo {
+    color: black;
+    padding: 0 12px;
+    width: 250px;
 }
 
 .songbutton {
@@ -264,7 +285,9 @@ body {
     gap: 13px;
 }
 
-
+.close {
+    display: none;
+}
 
 /* Media Querry */
 
@@ -273,15 +296,16 @@ body {
         position: absolute;
         left: -110%;
         transition: all .3s;
-        width: 437px;
+        width: 388px;
         z-index: 1;
         background-color: black;
     }
 
     .close {
+        display: block;
         position: absolute;
-        right: 29px;
-        top: 25px;
+        right: 19px;
+        top: 14px;
         width: 25px;
     }
 
@@ -290,15 +314,28 @@ body {
     }
 
     .playBar {
-        width: 96vw;
+        width: calc(100vw - 60px);
         left: 50%;
         right: 50%;
         transform: translate(-50%);
     }
 
-    .hamburger {
-        display: block;
-        width: 40px;
-        height: 34px;
+    .seekbar {
+        width: calc(100vw - 70px);
     }
+
+    .timevol {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.hamburger {
+    display: block;
+    width: 40px;
+    height: 34px;
+}
 }

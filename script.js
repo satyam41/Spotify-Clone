@@ -87,7 +87,7 @@ async function main() {
         }
         else {
             currentSong.pause();
-            play.src = "/img/play.svg";
+            play.src = "/img/play-google.svg";
         }
     })
 
@@ -111,6 +111,43 @@ async function main() {
 
     document.querySelector(".close").addEventListener("click", ()=>{
         document.querySelector(".left").style.left = "-110%";
+    })
+
+    // Add a event listener to previous and next
+    previous.addEventListener("click", () => {
+        let index = songs.indexOf(currentSong.src.split("/songs/")[1]);
+        if (index > 0) {
+            playMusic(songs[index - 1]);
+        }
+    })
+
+    next.addEventListener("click", () => {
+        let index = songs.indexOf(currentSong.src.split("/songs/")[1]);
+        if (index < songs.length - 1) {
+            playMusic(songs[index + 1]);
+        }
+    })
+
+
+    // add a event listener to the volume img element
+    let volume = document.querySelector('.volume').getElementsByTagName('img')[0];
+    volume.addEventListener("click", ()=>{
+        if(currentSong.muted){
+            currentSong.muted = false;
+            volume.src = '/img/volume.svg';
+            console.log("unmute");
+        }
+        else{
+            currentSong.muted = true;
+            volume.src = '/img/mute.svg';
+            console.log("mute")
+        }
+    })
+
+    // add a event listener to the volume slider
+    let volumeSlider = document.querySelector('.volume').getElementsByTagName('input')[0];
+    volumeSlider.addEventListener("change", ()=>{
+        currentSong.volume = volumeSlider.value / 100;
     })
 
 }
